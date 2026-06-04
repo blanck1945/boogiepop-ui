@@ -1,6 +1,8 @@
 {
   "name": "boogiepop-ui",
   "version": "0.1.0",
+  "description": "Boogiepop shared UI components and design tokens",
+  "license": "MIT",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -14,7 +16,15 @@
   "files": ["dist", "README.md"],
   "scripts": {
     "build": "tsc -p tsconfig.build.json && node -e \"const fs=require('fs');fs.mkdirSync('dist',{recursive:true});fs.copyFileSync('src/styles.css','dist/styles.css')\"",
-    "lint": "tsc -p tsconfig.build.json --noEmit"
+    "lint": "tsc -p tsconfig.build.json --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blanck1945/boogiepop-ui"
   },
   "peerDependencies": {
     "react": ">=18"
